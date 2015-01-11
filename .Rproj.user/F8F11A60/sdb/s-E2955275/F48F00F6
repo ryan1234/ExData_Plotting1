@@ -1,0 +1,17 @@
+{
+    "contents" : "library(plyr)\n\ndf <- read.table(\"household.txt\", header=TRUE, sep=\";\", na.strings = 'NULL', \n                 colClasses=c(\"character\",\"character\",\"character\",\"character\",\"character\",\"character\",\n                              \"character\",\"character\",\"character\"))\n\npng(filename=\"plot4.png\", width=480, height=480)\npar(mfrow=c(2, 2))\n\n# graph 1\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     plot(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n          y=as.numeric(Global_active_power), \n          type=\"l\",\n          xlab=\"\",\n          ylab=\"Global Active Power\"),\n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Global_active_power), \n           type=\"l\")\n)\n\n#graph 2\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     plot(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n          y=as.numeric(Voltage), \n          type=\"l\",\n          xlab=\"datetime\",\n          ylab=\"Voltage\"),\n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Voltage), \n           type=\"l\")\n)\n\n#graph 3\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     plot(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n          y=as.numeric(Sub_metering_1),\n          xlab=\"\",\n          ylab=\"Energy sub metering\",\n          type=\"l\",\n          col=\"black\")\n)\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Sub_metering_2),\n           col=\"red\")\n)\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Sub_metering_3),\n           col=\"blue\")\n)\nlegend(\"topright\", col=c(\"black\", \"red\", \"blue\"), bty = \"n\", lty=c(1,1), legend=c(\"Sub_metering_1\", \"Sub_metering_2\", \"Sub_metering_3\"))\n\n#graph 4\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     plot(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n          y=as.numeric(Global_reactive_power), \n          type=\"l\",\n          xlab=\"datetime\",\n          ylab=\"Global_reactive_power\"),\n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Global_reactive_power), \n           type=\"l\")\n)\ndev.off()",
+    "created" : 1420950007913.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "905732084",
+    "id" : "F48F00F6",
+    "lastKnownWriteTime" : 1420951523,
+    "path" : "~/coursera/exdata-010/project1/plot4.R",
+    "project_path" : "plot4.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

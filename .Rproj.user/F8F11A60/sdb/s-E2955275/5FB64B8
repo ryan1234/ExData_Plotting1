@@ -1,0 +1,17 @@
+{
+    "contents" : "library(plyr)\n\ndf <- read.table(\"household.txt\", header=TRUE, sep=\";\", na.strings = 'NULL', \n                  colClasses=c(\"character\",\"character\",\"character\",\"character\",\"character\",\"character\",\n                               \"character\",\"character\",\"character\"))\n\npng(filename=\"plot2.png\", width=480, height=480)\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     plot(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n          y=as.numeric(Global_active_power), \n          type=\"l\",\n          xlab=\"\",\n          ylab=\"Global Active Power (kilowatts)\"),\n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Global_active_power), \n           type=\"l\")\n)\ndev.off()",
+    "created" : 1420783811298.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2637349009",
+    "id" : "5FB64B8",
+    "lastKnownWriteTime" : 1420951711,
+    "path" : "~/coursera/exdata-010/project1/plot2.R",
+    "project_path" : "plot2.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

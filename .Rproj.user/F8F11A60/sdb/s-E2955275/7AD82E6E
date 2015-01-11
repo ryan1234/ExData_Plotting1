@@ -1,0 +1,17 @@
+{
+    "contents" : "library(plyr)\n\ndf <- read.table(\"household.txt\", header=TRUE, sep=\";\", na.strings = 'NULL', \n                 colClasses=c(\"character\",\"character\",\"character\",\"character\",\"character\",\"character\",\n                              \"character\",\"character\",\"character\"))\n\npng(filename=\"plot3.png\", width=480, height=480)\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     plot(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n          y=as.numeric(Sub_metering_1),\n          xlab=\"\",\n          ylab=\"Energy sub metering\",\n          type=\"l\",\n          col=\"black\")\n)\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Sub_metering_2),\n           col=\"red\")\n)\nwith(subset(df, as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-01\" | as.Date(Date, format=\"%d/%m/%Y\") == \"2007-02-02\"), \n     lines(x=strptime(paste(Date, Time), format=\"%d/%m/%Y %H:%M:%S\"), \n           y=as.numeric(Sub_metering_3),\n           col=\"blue\")\n)\nlegend(\"topright\", col=c(\"black\", \"red\", \"blue\"), lty=c(1,1), legend=c(\"Sub_metering_1\", \"Sub_metering_2\", \"Sub_metering_3\"))\ndev.off()",
+    "created" : 1420866315941.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "346318552",
+    "id" : "7AD82E6E",
+    "lastKnownWriteTime" : 1420950063,
+    "path" : "~/coursera/exdata-010/project1/plot3.R",
+    "project_path" : "plot3.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
