@@ -1,6 +1,7 @@
 library(plyr)
-
-df <- read.table("household.txt", header=TRUE, sep=";", na.strings = 'NULL', 
+download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", destfile="data.zip", method="curl")
+unzip("data.zip")
+df <- read.table("household_power_consumption.txt", header=TRUE, sep=";", na.strings = 'NULL', 
                   colClasses=c("character","character","character","character","character","character",
                                "character","character","character"))
 
